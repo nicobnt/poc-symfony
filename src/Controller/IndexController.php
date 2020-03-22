@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Events\BienvenueEvent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 class IndexController extends AbstractController
 {
@@ -20,9 +22,12 @@ class IndexController extends AbstractController
     /**
      * @Route("/hello-world/{name}", name="hello")
      */
-    public function hello($name): Response
+    public function hello(String $name, EventDispatcherInterface $eventDispatcher): Response
     {
-        $name = ucfirst($name);
-        return new Response("Hello $name");
+        $bienvenueEvent = new BienvenueEvent($name);
+        $eventDispatcher->dispatch($bienvenueEvent, $bienvenueEvent::NAME);
+        $content = $bienvenueEvent->getContent();
+
+        return new Response($content);
     }
 }

@@ -41,4 +41,17 @@ class IndexControllerTest extends WebTestCase
             'Avec "zozor", la page Hello Zozor ne fonctionne pas'
         );
     }
+
+    public function testHelloWorldWithAnEvent()
+    {
+        $client = static::createClient();
+        $client->catchExceptions(false);
+        $client->request('GET', '/hello-world/zozor');
+
+        self::assertContains(
+            'Bienvenue parmi nous zozor !',
+            $client->getResponse()->getContent(),
+            'L\'événement ne fonctionne pas'
+        );
+    }
 }
