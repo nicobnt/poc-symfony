@@ -34,7 +34,7 @@ class IndexController extends AbstractController
     /**
      * Hello world, avec Twig cette fois :)
      *
-     * @Route("/hello-twig/{name}", name="hello", requirements={"name"="\w+"})
+     * @Route("/hello-twig/{name}", name="hello-twig", requirements={"name"="\w+"})
      */
     public function helloTwig(String $name): Response
     {
