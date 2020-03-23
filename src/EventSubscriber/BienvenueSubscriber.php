@@ -7,7 +7,7 @@ namespace App\EventSubscriber;
 use App\Events\BienvenueEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
+
 
 class BienvenueSubscriber implements EventSubscriberInterface
 {
@@ -20,9 +20,9 @@ class BienvenueSubscriber implements EventSubscriberInterface
                 ['messageBienvenue', 15],
                 ['messageBienvenueUtilisateur', 10],
             ],
-            KernelEvents::RESPONSE => [
+            /*KernelEvents::RESPONSE => [
                 ['messageBienvenueResponse', 0],
-            ],
+            ],*/
         ];
     }
 

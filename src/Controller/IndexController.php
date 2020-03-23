@@ -30,4 +30,14 @@ class IndexController extends AbstractController
 
         return new Response($content);
     }
+
+    /**
+     * Hello world, avec Twig cette fois :)
+     *
+     * @Route("/hello-twig/{name}", name="hello", requirements={"name"="\w+"})
+     */
+    public function helloTwig(String $name): Response
+    {
+        return $this->render('hello.html.twig', ['name' => $name]);
+    }
 }

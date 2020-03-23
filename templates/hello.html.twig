@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    Hello {{ name }}!
+
+    {% set collection = [1, 2, 3] %}
+
+    <ul>
+        {% for item in collection %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ 'foo'|capitalize|reverse }}
+
+    {{ '<h1>Foo</h1>' }} {# affichera "<h1>Foo</h1>" dans le navigateur #}
+    {{ '<h1>Bar</h1>'|raw }} {# affichera "Bar" tel qu'attendu #}
+
+    {% set tableau, article = [1,2,3], {
+        'titre': 'Etendre Twig',
+        'contenu': 'Il est possible ...'
+    } %}
+
+    {{ tableau.2 ~ ' ' ~ tableau|first }} {# "2 1" #}
+
+    {{ article.titre }} {# "Etendre Twig" #}
+    {{ article.contenu }} {# "Il est possible ..." #}
+
+    {% set somePrice = 10.7567 %}
+
+    {{ somePrice|price(2) }} {# "10.75€" #}
+
+    {% import 'macros/alertes.html.twig' as utils %}
+
+    {{ utils.alert('Attention!', 'warning') }}
+    {{ utils.alert('Erreur fatale!', 'danger') }}
+{% endblock %}
