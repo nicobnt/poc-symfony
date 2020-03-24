@@ -34,10 +34,12 @@ class IndexController extends AbstractController
     /**
      * Hello world, avec Twig cette fois :)
      *
-     * @Route("/hello-twig/{name}", name="hello-twig", requirements={"name"="\w+"})
+     * @Route("/hello-twig", name="homepage")
      */
-    public function helloTwig(String $name): Response
+    public function helloTwig(): Response
     {
+        $name = empty($this->getUser()) ? '' : $this->getUser()->getUsername();
+
         return $this->render('hello.html.twig', ['name' => $name]);
     }
 }

@@ -8,26 +8,26 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item {% if current_path == 'hello' %} active {% endif %}">
-                <a class="nav-link" href="{{ path('hello', {name: 'toto'}) }}">Accueil<span
+            <li class="nav-item {% if current_path == 'homepage' %} active {% endif %}">
+                <a class="nav-link" href="{{ path('homepage', {name: 'toto'}) }}">Accueil<span
                             class="sr-only">Accueil</span></a>
             </li>
-            <li class="nav-item {% if current_path == 'hello-world' %} active {% endif %}">
-                <a class="nav-link" href="{{ path('hello-world') }}">A Propos</a>
+            <li class="nav-item {% if current_path == 'hello' %} active {% endif %}">
+                <a class="nav-link" href="{{ path('hello', {name: 'toto'}) }}">A Propos</a>
             </li>
             <li class="nav-item {% if current_path == 'form-new' %} active {% endif %}">
                 <a class="nav-link" href="{{ path('form-new') }}">Contact</a>
             </li>
-            <li class="nav-item {% if current_path == 'hello-twig' %} active {% endif %}">
-                <a class="nav-link" href="{{ path('hello-twig', {name: 'toto'}) }}">Droits de l'homme</a>
+            <li class="nav-item {% if current_path == 'hello' %} active {% endif %}">
+                <a class="nav-link" href="{{ path('hello', {name: 'toto'}) }}">Droits de l'homme</a>
             </li>
         </ul>
         <ul class="navbar-nav ">
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('hello-world') }}">Salles</a>
+                <a class="nav-link" href="{{ path('hello', {name: 'toto'}) }}">Salles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('hello-world') }}">Locations</a>
+                <a class="nav-link" href="{{ path('hello', {name: 'toto'}) }}">Locations</a>
             </li>
             <!-- PROFILE DROPDOWN - scrolling off the page to the right -->
             <li class="nav-item dropdown">
